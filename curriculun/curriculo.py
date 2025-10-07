@@ -11,9 +11,9 @@ def load_page():
     nacionalidade = "Brasileiro"
     nascimento = "21/11/1997"
     endereco = "João Pessoa, PB"
-    objetivo = ("- Atuar na área de Desenvolvimento de Software, Automação de Processos e Inteligência Artificial, aplicando soluções inovadoras que otimizem "
-                "fluxos, integrem sistemas e impulsionem resultados. Busco crescimento profissional contínuo, aprimorando minhas habilidades em Python, "
-                "APIs, automações e análise de dados.")  # do PDF. 2
+    objetivo = ("- Atuar no desenvolvimento e automação de sistemas, aplicando soluções inteligentes em Python, APIs e integração de dados para otimizar processos e aumentar a eficiência operacional."
+                "Busco evoluir continuamente na área de tecnologia e inovação, desenvolvendo projetos que envolvam automação de rotinas, agentes inteligentes e análise de dados, "
+                "com foco em melhoria de performance e resultados mensuráveis.")  # do PDF. 2
 
     experiencias = [
         {
@@ -224,3 +224,4 @@ def load_page():
     # st.write("Conteúdo extraído do PDF enviado e usado para preencher este currículo. 4")
 
 load_page()
+
