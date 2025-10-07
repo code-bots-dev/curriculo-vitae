@@ -9,5 +9,6 @@ def menu_inicial():
         position="sidebar",
         expanded=True
     )
+    pg.run()
 
 menu_inicial()
