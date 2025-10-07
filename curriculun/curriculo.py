@@ -1,6 +1,7 @@
 import streamlit as st
 import base64
 from datetime import date
+import functions
 
 st.set_page_config(page_title="Currículo - Vitor Pereira", layout="wide")
 
@@ -86,17 +87,24 @@ def load_page():
     col1, col2 = st.columns([2, 1])
 
     with st.container(border=True):
-        st.markdown("**Contato**")
-        col3, col4 = st.columns(2)
-        with col3:
-            st.write(f":green[**E-mail:**] {contato_email}")
-        with col4:
-            st.write(f":green[**Celular:**] {contato_telefone}")
-        st.write(f":green[**Nacionalidade:**] {nacionalidade}")
-        st.write(f":green[**Data nascimento:**] {nascimento}")
-        st.write(f":green[**Endereço:**] {endereco}")
+        st.subheader("Contato e Informações Pessoais")
 
-        # Botão WhatsApp
+        # Linha principal com dados
+        col1, col2, col3 = st.columns([1.5, 1.2, 1])
+
+        with col1:
+            st.markdown(f"📧 **E-mail:** [{contato_email}](mailto:{contato_email})")
+            st.markdown(
+                f"📱 **Celular / WhatsApp:** [{contato_telefone}](https://wa.me/55{contato_telefone.replace('(', '').replace(')', '').replace(' ', '').replace('-', '')})")
+
+        with col2:
+            st.markdown(f"🌎 **Nacionalidade:** {nacionalidade}")
+            st.markdown(f"🎂 **Nascimento:** {nascimento} ({functions.calcula_idade(nascimento)} anos)")
+
+        with col3:
+            st.markdown(f"📍 **Localização:** {endereco}")
+            st.markdown(f"💼 **LinkedIn:** [Vitor Rafael](https://www.linkedin.com/in/vitor-rafael-baba6a173/)")
+
         whatsapp_numero = "83991435879"
         st.markdown(
             f"""
@@ -107,7 +115,11 @@ def load_page():
             
             <a href="https://www.linkedin.com/in/vitor-rafael-baba6a173/" target="_blank">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
-                     width="32" alt="LinkedIn">
+                     width="33" alt="LinkedIn">
+            </a>
+            
+            <a href="https://github.com/code-bots-dev" target="_blank" style="margin-right:15px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="33" alt="GitHub">
             </a>
             """,
             unsafe_allow_html=True
@@ -118,16 +130,16 @@ def load_page():
         st.write("")
         st.write("")
         st.header("🎯 Objetivo Profissional")
-        st.write(objetivo)  # do PDF. 3
+        st.write(objetivo)
         st.markdown("---")
 
         st.header("📝 Resumo / Destaques")
-        st.write("- Domínio de Python, JavaScript, HTML, CSS e bancos de dados (Oracle, PostgreSQL, MongoDB)\n\n"
-                 "- Profissional em desenvolvimento, automação e integração de sistemas\n\n"
-                 "- Experiência com chatbots, APIs, testes funcionais e suporte técnico\n\n"
-                 "- Focado em otimização de processos e soluções eficientes"
+        st.write("- Profissional com sólida experiência em desenvolvimento de sistemas, automação de processos e integração de APIs, atuando na entrega de soluções inteligentes e eficientes que otimizam fluxos de trabalho e reduzem esforços manuais. "
+                 "\n\n- Domínio de Python, com foco em automação, análise de dados e integração entre plataformas corporativas. Experiência prática em JavaScript, HTML, CSS e bancos de dados Oracle, PostgreSQL e MongoDB, garantindo aplicações estáveis e bem estruturadas."
+                 "\n\n- Atuação em projetos que envolvem chatbots, agentes inteligentes, APIs REST, testes funcionais e suporte técnico especializado, com ênfase em qualidade, desempenho e melhoria contínua."
+                 "\n\n- Perfil proativo, analítico e orientado a resultados, com facilidade para compreender processos complexos e transformá-los em soluções automatizadas e escaláveis."
+                 "\n\n- Motivado por desafios que envolvam inovação, integração de sistemas e o uso de Inteligência Artificial aplicada à automação corporativa."
         )
-
 
     st.markdown("---")
     st.header("💼 Histórico Profissional")
@@ -224,4 +236,3 @@ def load_page():
     # st.write("Conteúdo extraído do PDF enviado e usado para preencher este currículo. 4")
 
 load_page()
-
